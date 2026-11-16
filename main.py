@@ -32,9 +32,9 @@ def general_weighted_average(e):
 {subjects[1]}: {genmath}
 {subjects[2]}: {effcom}
 {subjects[3]}: {pklp}
-{subjects[4]}: {arts}
-{subjects[5]}: {filid}
-{subjects[6]}: {ff1}
+{subjects[4]}: {ff1}
+{subjects[5]}: {arts}
+{subjects[6]}: {filid}
 {subjects[7]}: {lcs}
 """
 
