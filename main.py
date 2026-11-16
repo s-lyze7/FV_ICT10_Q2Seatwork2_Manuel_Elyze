@@ -29,13 +29,13 @@ def general_weighted_average(e):
     gwa = weighted_sum / total_units
 
     summary = f""" {subjects[0]}: {science}
-{subjects[1]}: {genmath}
-{subjects[2]}: {gensci}
+{subjects[1]}: {gensci}
+{subjects[2]}: {genmath}
 {subjects[3]}: {effcom}
 {subjects[4]}: {pklp}
-{subjects[5]}: {ff1}
-{subjects[6]}: {arts}
-{subjects[7]}: {filid}
+{subjects[5]}: {arts}
+{subjects[6]}: {filid}
+{subjects[7]}: {ff1}
 {subjects[8]}: {lcs}
 """
 
