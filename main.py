@@ -1,44 +1,46 @@
-from pyscript import document, display
+from pyscript import document
 
-subjects = ["gensci", "genmath", "effcom", "pklp", "ff1", "arts", "filid", "lcs"]
+subject_fields = [
+    ("gensci", "GenSci"),
+    ("genmath", "GenMath"),
+    ("effcom", "EFFCOM"),
+    ("pklp", "PKLP"),
+    ("arts", "Arts1"),
+    ("filid", "FILID"),
+    ("ff1", "FF1"),
+    ("lcs", "LCS"),
+]
 
 def general_weighted_average(e):
-    first_name = document.getElementById("first_name").value
-    last_name = document.getElementById("last_name").value
+    first_name = document.getElementById("first_name").value.strip()
+    last_name = document.getElementById("last_name").value.strip()
 
-    try:
-        gensci = float(document.getElementById('gensci').value)
-        genmath = float(document.getElementById('genmath').value)
-        effcom = float(document.getElementById('effcom').value)
-        pklp = float(document.getElementById('pklp').value)
-        ff1 = float(document.getElementById('ff1').value)
-        arts = float(document.getElementById('arts').value)
-        filid = float(document.getElementById('filid').value)
-        lcs = float(document.getElementById('lcs').value)
+    output = document.getElementById("output")
+    student_info = document.getElementById("student_info")
+    summary_el = document.getElementById("summary")
 
-    except ValueError:
-        document.getElementById("gwa").innerText = "Fill in all the blanks"
-        return
+    student_info.innerText = ""
+    summary_el.innerText = ""
+    output.innerText = ""
 
     if not first_name or not last_name:
-        document.getElementById("gwa").innerText = "Fill in all the blanks"
+        output.innerText = "Fill in all the blanks."
         return
-    
-    weighted_sum = (gensci * 4 + genmath * 4 + effcom * 4 + pklp * 4 + ff1 * 4 + arts * 4 + filid * 4 + lcs * 4)
-    total_units = 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4
+
+    grades = {}
+    try:
+        for field_id, _ in subject_fields:
+            grades[field_id] = float(document.getElementById(field_id).value)
+    except ValueError:
+        output.innerText = "Fill in all the blanks with valid numbers."
+        return
+
+    summary_lines = [f"{label}: {grades[field_id]}" for field_id, label in subject_fields]
+    summary_el.innerText = "\n".join(summary_lines)
+
+    weighted_sum = sum(grade * 4 for grade in grades.values())
+    total_units = 4 * len(grades)
     gwa = weighted_sum / total_units
 
-    summary = f""" {subjects[0]}: {gensci}
-{subjects[1]}: {gensci}
-{subjects[2]}: {genmath}
-{subjects[3]}: {effcom}
-{subjects[4]}: {pklp}
-{subjects[5]}: {arts}
-{subjects[6]}: {filid}
-{subjects[7]}: {ff1}
-{subjects[8]}: {lcs}
-"""
-
-    display(f'Name: {first_name} {last_name}', target='student_info')
-    display(summary, target='summary')
-    display(f'Your general weighted average is {gwa:.2f}', target='output')
+    student_info.innerText = f"Name: {first_name} {last_name}"
+    output.innerText = f"Your general weighted average is {gwa:.2f}"
