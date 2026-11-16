@@ -15,25 +15,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
-
         .container {
             background-color: rgba(255, 255, 255, 0.2);
             padding: 30px;
             border-radius: 50px;
-            backdrop-filter: blur(30%);
+            backdrop-filter: blur(10px);
             max-width: 500px;
             width: 100%;
+            margin: 20px 0;
         }
-
         .btn-custom {
             background-color: #ad636d;
             border: none;
             color: white;
         }
-
         input {
             display: block;
             width: 100%;
@@ -42,40 +40,32 @@
             border-radius: 10px;
             border: none;
         }
+        .result { white-space: pre-line; margin-top: 10px; }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>Student Grade Calculator</h1>
         <br>
-
         <h4>Student Details:</h4>
-
-            <input type="text" id="first_name" placeholder="First Name:">
-            <input type="text" id="last_name" placeholder="Last Name:">
+        <input type="text" id="first_name" placeholder="First Name:">
+        <input type="text" id="last_name" placeholder="Last Name:">
 
         <h4>Enter your grades↓</h4>
-
-            <input type="number" id="gensci" placeholder="GenSci:">
-            <input type="number" id="genmath" placeholder="GenMath:">
-            <input type="number" id="effcom" placeholder="EFFCOM:">
-            <input type="number" id="pklp" placeholder="PKLP:">
-            <input type="number" id="arts" placeholder="Arts1:">
-            <input type="number" id="filid" placeholder="FILID:">
-            <input type="number" id="ff1" placeholder="FF1:">
-            <input type="number" id="lcs" placeholder="LCS:">
+        <input type="number" id="gensci" placeholder="GenSci:">
+        <input type="number" id="genmath" placeholder="GenMath:">
+        <input type="number" id="effcom" placeholder="EFFCOM:">
+        <input type="number" id="pklp" placeholder="PKLP:">
+        <input type="number" id="arts" placeholder="Arts1:">
+        <input type="number" id="filid" placeholder="FILID:">
+        <input type="number" id="ff1" placeholder="FF1:">
+        <input type="number" id="lcs" placeholder="LCS:">
 
         <button type="submit" class="btn btn-custom" py-click="general_weighted_average">Calculate GWA</button>
 
         <div class="result" id="student_info"></div>
         <div class="result" id="summary"></div>
         <div class="result" id="output"></div>
-        <div class="result" id="gwa"></div>
-
-        <div class="general_weighted_average" id="gwa"></div>
-
-        <script type="py" src="main.py"></script>
     </div>
 </body>
 </html>
