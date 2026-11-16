@@ -28,7 +28,7 @@ def general_weighted_average(e):
     total_units = 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4
     gwa = weighted_sum / total_units
 
-    summary = f""" {subjects[0]}: {science}
+    summary = f""" {subjects[0]}: {gensci}
 {subjects[1]}: {gensci}
 {subjects[2]}: {genmath}
 {subjects[3]}: {effcom}
