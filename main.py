@@ -1,18 +1,21 @@
 from pyscript import document, display
 
-subjects = ["science", "math", "english", "filipino", "ict", "pe"]
+subjects = ["gensci", "genmath", "effcom", "pklp", "ff1", "arts", "filid", "lcs"]
 
 def general_weighted_average(e):
     first_name = document.getElementById("first_name").value
     last_name = document.getElementById("last_name").value
 
     try:
-        science = float(document.getElementById('science').value)
-        math = float(document.getElementById('math').value)
-        english = float(document.getElementById('english').value)
-        filipino = float(document.getElementById('filipino').value)
-        ict = float(document.getElementById('ict').value)
-        pe = float(document.getElementById('pe').value)
+        gensci = float(document.getElementById('gensci').value)
+        genmath = float(document.getElementById('genmath').value)
+        effcom = float(document.getElementById('effcom').value)
+        pklp = float(document.getElementById('pklp').value)
+        ff1 = float(document.getElementById('ff1').value)
+        arts = float(document.getElementById('arts').value)
+        filid = float(document.getElementById('filid').value)
+        lcs = float(document.getElementById('lcs').value)
+
     except ValueError:
         document.getElementById("gwa").innerText = "Fill in all the blanks"
         return
@@ -21,16 +24,19 @@ def general_weighted_average(e):
         document.getElementById("gwa").innerText = "Fill in all the blanks"
         return
     
-    weighted_sum = (science * 5 + math * 5 + english * 5 + filipino * 3 + ict * 2 + pe * 1)
-    total_units = 5 + 5 + 5 + 3 + 2 + 1
+    weighted_sum = (gensci * 4 + genmath * 4 + effcom * 4 + pklp * 4 + ff1 * 4 + arts * 4 + filid * 4 + lcs * 4)
+    total_units = 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4
     gwa = weighted_sum / total_units
 
     summary = f""" {subjects[0]}: {science}
-{subjects[1]}: {math}
-{subjects[2]}: {english}
-{subjects[3]}: {filipino}
-{subjects[4]}: {ict}
-{subjects[5]}: {pe}
+{subjects[1]}: {genmath}
+{subjects[2]}: {gensci}
+{subjects[3]}: {effcom}
+{subjects[4]}: {pklp}
+{subjects[5]}: {ff1}
+{subjects[6]}: {arts}
+{subjects[7]}: {filid}
+{subjects[8]}: {lcs}
 """
 
     display(f'Name: {first_name} {last_name}', target='student_info')
